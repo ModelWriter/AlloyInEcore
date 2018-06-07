@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Maven: kodkod:kodkod:2.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/kodkod.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="http://emina.github.io/kodkod/doc/index.html" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

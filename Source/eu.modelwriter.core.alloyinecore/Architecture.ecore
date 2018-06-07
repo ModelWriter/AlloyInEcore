@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ArchitectureMetamodel" nsURI="eu.modelwriter.demonstrations.metamodels.architecture"
+    nsPrefix="arch">
+  <eAnnotations source="http://www.modelwriter.eu/alloyinecore/import">
+    <details key="Ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.modelwriter.eu/alloyinecore/source">
+    <details key="source" value="import Ecore : 'http://www.eclipse.org/emf/2002/Ecore';&#xA;&#xA;package ArchitectureMetamodel : arch = 'eu.modelwriter.demonstrations.metamodels.architecture'&#xA;{&#xA;    public class one ArchitecturalModel&#xA;    {&#xA;        property one elements : ArchitecturalElement[*] { composes };&#xA;        &#xA;        model property leaves : Component[*];        &#xA;        invariant leaves: Component - Component.^~subComponents in ArchitecturalModel.leaves;&#xA;        &#xA;        invariant : ArchitecturalModel.elements not in ArchitecturalModel.leaves;&#xA;        &#xA;        model property one root: Component[1];&#xA;        invariant root: Component in ArchitecturalModel.root.*subComponents;&#xA;        &#xA;    }&#xA;    abstract class ArchitecturalElement [9]&#xA;    {&#xA;        attribute identifier : Integer[1] {id}; &#xA;&#x9;&#x9;invariant : all disj a, b: ArchitecturalElement | a.identifier != b.identifier;&#xA;--&#x9;&#x9;invariant : some a:ArchitecturalElement | all b: ArchitecturalElement | a.identifier > b.identifier;&#xA;        attribute name : String[1];&#xA;        invariant : all c: Component | some c.subComponents implies #c.subComponents = 2;&#xA;    }&#xA;    class Component extends ArchitecturalElement&#xA;    {&#xA;        property subComponents : Component[*] { composes };&#xA;        ghost attribute description: String = 'Default Description';      &#xA;        &#xA;        model attribute isLeaf: Boolean { derived };      &#xA;&#x9;&#x9;invariant isLeaf: all c: Component | no c.subComponents and no c.~root implies c.isLeaf = True;&#xA;--&#x9;&#x9;invariant isLeaf': ArchitecturalModel.root.isLeaf = False;&#xA;    }&#xA;}"/>
+    <details key="source_hash" value="-1524708420"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ArchitecturalModel">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+      <details key="visibility" value="public"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/cardinality">
+      <details key="cardinality" value="one"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/model">
+      <details key="model" value="model property leaves : Component[*];"/>
+      <contents xsi:type="ecore:EReference" name="leaves" ordered="false" upperBound="-1"
+          eType="#//Component">
+        <eAnnotations source="http://www.modelwriter.eu/alloyinecore/model"/>
+      </contents>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/model">
+      <details key="model" value="model property one root: Component[1];"/>
+      <contents xsi:type="ecore:EReference" name="root" ordered="false" lowerBound="1"
+          eType="#//Component">
+        <eAnnotations source="http://www.modelwriter.eu/alloyinecore/cardinality">
+          <details key="cardinality" value="one"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.modelwriter.eu/alloyinecore/model"/>
+      </contents>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="name" value="leaves"/>
+      <details key="formula" value="Component - Component.^~subComponents in ArchitecturalModel.leaves"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="ArchitecturalModel.elements not in ArchitecturalModel.leaves"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="name" value="root"/>
+      <details key="formula" value="Component in ArchitecturalModel.root.*subComponents"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false"
+        upperBound="-1" eType="#//ArchitecturalElement" containment="true">
+      <eAnnotations source="http://www.modelwriter.eu/alloyinecore/cardinality">
+        <details key="cardinality" value="one"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArchitecturalElement" abstract="true">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/reasoning/lowerscope">
+      <details key="lowerscope" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/reasoning/upperincluded">
+      <details key="lowerincluded" value="["/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/reasoning/lowerincluded">
+      <details key="upperincluded" value="]"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="all disj a, b: ArchitecturalElement | a.identifier != b.identifier"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="all c: Component | some c.subComponents implies #c.subComponents = 2"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//ArchitecturalElement">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/model">
+      <details key="model" value="model attribute isLeaf: Boolean { derived };"/>
+      <contents xsi:type="ecore:EAttribute" name="isLeaf" ordered="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          derived="true">
+        <eAnnotations source="http://www.modelwriter.eu/alloyinecore/model"/>
+      </contents>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="name" value="isLeaf"/>
+      <details key="formula" value="all c: Component | no c.subComponents and no c.~root implies c.isLeaf = True"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" ordered="false"
+        upperBound="-1" eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" ordered="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Default Description">
+      <eAnnotations source="http://www.modelwriter.eu/alloyinecore/ghost"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

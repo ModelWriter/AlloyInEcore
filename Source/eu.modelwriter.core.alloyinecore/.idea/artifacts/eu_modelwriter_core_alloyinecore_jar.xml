@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="eu.modelwriter.core.alloyinecore:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts</output-path>
+    <root id="root">
+      <element id="archive" name="eu.modelwriter.core.alloyinecore.jar">
+        <element id="module-output" name="eu.modelwriter.core.alloyinecore" />
+        <element id="dir-copy" path="$PROJECT_DIR$/src" />
+      </element>
+      <element id="library" level="project" name="Maven: com.google.guava:guava:21.0" />
+      <element id="library" level="project" name="Maven: org.sat4j:org.sat4j.core:2.3.1" />
+      <element id="library" level="project" name="Maven: kodkod:kodkod:2.1" />
+      <element id="library" level="module" name="Maven: org.eclipse.emf:org.eclipse.emf.common:2.12.0" module-name="eu.modelwriter.core.alloyinecore" />
+      <element id="library" level="module" name="Maven: org.eclipse.emf:org.eclipse.emf.ecore:2.12.0" module-name="eu.modelwriter.core.alloyinecore" />
+      <element id="library" level="module" name="Maven: org.eclipse.emf:org.eclipse.emf.ecore.xmi:2.12.0" module-name="eu.modelwriter.core.alloyinecore" />
+      <element id="library" level="application" name="antlr-4.6-complete" />
+    </root>
+  </artifact>
+</component>

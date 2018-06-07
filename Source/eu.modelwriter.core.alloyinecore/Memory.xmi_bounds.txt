@@ -1,0 +1,46 @@
+[Requirement78, Requirement204, Memory40, Requirement180, Requirement156]
+
+relation bounds:
+ Requirement: [[[Requirement78], [Requirement204], [Requirement180], [Requirement156]]]
+ Memory: [[[Memory40]]]
+ have: [[[Memory40, Requirement78], [Memory40, Requirement204], [Memory40, Requirement180], [Memory40, Requirement156]]]
+ req: [[[Requirement78, Requirement180], [Requirement78, Requirement156], [Requirement204, Requirement78], [Requirement204, Requirement180], [Requirement204, Requirement156]], [[Requirement78, Requirement78], [Requirement78, Requirement204], [Requirement78, Requirement180], [Requirement78, Requirement156], [Requirement204, Requirement78], [Requirement204, Requirement204], [Requirement204, Requirement180], [Requirement204, Requirement156], [Requirement180, Requirement78], [Requirement180, Requirement204], [Requirement180, Requirement180], [Requirement180, Requirement156], [Requirement156, Requirement78], [Requirement156, Requirement204], [Requirement156, Requirement180], [Requirement156, Requirement156]]]
+int bounds: 
+ []
+
+no (Requirement & Memory) 
+req in (Requirement -> Requirement) 
+(Memory.*have) = (Memory + Requirement) 
+(all r: Requirement | !(r in (r.^req))) 
+(req.req) in req 
+(all a: Requirement, b: Requirement | (b in (a.req) and  a in (b.req)) => a = b) 
+one Memory 
+have in (Memory -> Requirement) 
+(all m: Memory.have | lone (m.~have))
+
+---OUTCOME---
+SATISFIABLE
+
+---INSTANCE---
+relations: {req=[[Requirement78, Requirement180], [Requirement78, Requirement156], [Requirement204, Requirement78], [Requirement204, Requirement180], [Requirement204, Requirement156]], Memory=[[Memory40]], Requirement=[[Requirement78], [Requirement204], [Requirement180], [Requirement156]], have=[[Memory40, Requirement78], [Memory40, Requirement204], [Memory40, Requirement180], [Memory40, Requirement156]]}
+ints: []
+
+---STATS---
+p cnf 0 0
+primary variables: 0
+translation time: 0 ms
+solving time: 344 ms
+
+
+Requirement:    Requirement78, Requirement204, Requirement180, Requirement156
+Memory:         Memory40
+
+have (Memory40, Requirement78)
+have (Memory40, Requirement180)
+have (Memory40, Requirement156)
+have (Memory40, Requirement204)
+req (Requirement78, Requirement156)
+req (Requirement204, Requirement156)
+req (Requirement78, Requirement180)
+req (Requirement204, Requirement78)
+req (Requirement204, Requirement180)

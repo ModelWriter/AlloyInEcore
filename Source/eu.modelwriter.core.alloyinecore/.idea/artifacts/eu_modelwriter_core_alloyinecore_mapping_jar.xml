@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="eu.modelwriter.core.alloyinecore.mapping:jar">
+    <output-path>$PROJECT_DIR$/../eu.modelwriter.core.alloyinecore.mapping/lib</output-path>
+    <root id="root">
+      <element id="archive" name="eu.modelwriter.core.alloyinecore.jar">
+        <element id="module-output" name="eu.modelwriter.core.alloyinecore" />
+        <element id="dir-copy" path="$PROJECT_DIR$/src" />
+      </element>
+    </root>
+  </artifact>
+</component>

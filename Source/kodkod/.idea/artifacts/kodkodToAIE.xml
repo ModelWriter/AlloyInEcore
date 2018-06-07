@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="kodkodToAIE">
+    <output-path>$PROJECT_DIR$/../eu.modelwriter.core.alloyinecore/lib</output-path>
+    <root id="archive" name="kodkod.jar">
+      <element id="module-output" name="kodkod" />
+    </root>
+  </artifact>
+</component>
