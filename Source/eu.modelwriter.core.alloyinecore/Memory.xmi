@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<tol:Memory xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tol="eu.modelwriter.examples.basiclist" xsi:schemaLocation="eu.modelwriter.examples.basiclist BasicList.ecore">
-  <have req="//@have.2 //@have.1"/>
-  <have/>
-  <have/>
-  <have req="//@have.1 //@have.0 //@have.2"/>
-</tol:Memory>
