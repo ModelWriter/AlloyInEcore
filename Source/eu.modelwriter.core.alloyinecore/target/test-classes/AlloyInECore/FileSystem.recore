@@ -1,0 +1,44 @@
+package filesystem : fsys = 'eu.modelwriter.examples.filesystem'
+{
+    class Name;
+    abstract class FSObject
+    {
+        public property name : Name { composes };
+        invariant : FSObject in Root.*content;
+    }
+    abstract class Executable
+    {
+        public property depend : File[*];
+        invariant : all e: Executable | not (e in e.^depend);
+    }
+    public class File extends FSObject, Executable;
+    public class Dir extends FSObject < 3
+    {
+        public property content : FSObject[*] { composes };
+        invariant : all d: Dir | not (d in d.^content);
+    }
+    public class Link extends FSObject < 5
+    {
+        public property link : FSObject
+        {
+            reason : all l: Link | not (l in l.^link);
+        }
+        invariant : all l: Link | not (l in l.^link);
+    }
+    public class Root extends Dir
+    {
+        invariant : no Root.~content;
+        invariant : one Root;
+    }
+    invariant : all disj a, b: FSObject - Root |
+            	a.~content = b.~content => a.name != b.name;
+    package properties : prop = 'eu.modelwriter.examples.filesystem.extended'
+    {
+        enum Access
+        {
+            literal Readonly = 0;
+            literal None = 0;
+            literal ReadAndWriter = 0;
+        }
+    }
+}

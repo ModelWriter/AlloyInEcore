@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="filesystem" nsURI="eu.modelwriter.examples.filesystem" nsPrefix="fsys">
+  <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+    <details key="callable" value="false"/>
+    <details key="formula" value="all disj a, b: FSObject - Root |&#xA;            &#x9;a.~content = b.~content => a.name != b.name"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.modelwriter.eu/alloyinecore/model">
+    <details key="name"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Name"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FSObject" abstract="true">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="FSObject in Root.*content"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" lowerBound="1" containment="true">
+      <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+        <details key="visibility" value="public"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Executable" abstract="true">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="all e: Executable | not (e in e.^depend)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="depend" upperBound="-1">
+      <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+        <details key="visibility" value="public"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="File">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+      <details key="visibility" value="public"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dir">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+      <details key="visibility" value="public"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="all d: Dir | not (d in d.^content)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1" containment="true">
+      <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+        <details key="visibility" value="public"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+      <details key="visibility" value="public"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="all l: Link | not (l in l.^link)"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" lowerBound="1">
+      <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+        <details key="visibility" value="public"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.modelwriter.eu/alloyinecore/reasoning/reason">
+        <details key="formula" value="all l: Link | not (l in l.^link)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/visibility">
+      <details key="visibility" value="public"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="no Root.~content"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.modelwriter.eu/alloyinecore/expression/invariant">
+      <details key="callable" value="false"/>
+      <details key="formula" value="one Root"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eSubpackages name="properties" nsURI="eu.modelwriter.examples.filesystem.extended" nsPrefix="prop">
+    <eClassifiers xsi:type="ecore:EEnum" name="Access">
+      <eLiterals name="Readonly"/>
+      <eLiterals name="None"/>
+      <eLiterals name="ReadAndWriter"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

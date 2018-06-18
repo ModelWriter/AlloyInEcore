@@ -1,0 +1,43 @@
+import Ecore : 'http://www.eclipse.org/emf/2002/Ecore';
+
+package generics : gns = 'eu.modelwriter.generics'
+{
+    abstract class List<E>
+    {
+        operation add(element : E);
+        operation iterator() : Iterator<E>[?];
+        invariant quantifier : all d : List | not (d in d.^contents);
+    }
+    class Iterator<E>
+    {
+        operation next() : E[?] throws MyException<E>;
+        operation hasNext() : String;
+    }
+    class ArrayList<V> extends List<V>;
+    public class Car;
+    abstract class Person;
+    class Owner<K, V extends Person & Car>
+    {
+        property cars : ArrayList<Car>[?];
+        property owner : V[*|?];
+        operation op() : subpackage::SubClass;
+        annotation;
+    }
+    abstract class Shape;
+    class Canvas
+    {
+        property ref : List<?>[?];
+        operation draw(shapes : List<? extends Shape>) : Boolean[?];
+        operation <V> create(name : String);
+        operation create(arg : ArrayList<? super Canvas>[?]);
+    }
+    class MyException<T>;
+    package subpackage : sp = 'w3'
+    {
+        public class SubClass
+        {
+            property ref : generics::Car[?];
+        }
+    }
+    invariant test1 : contents in Dir -> (Dir + File);
+}

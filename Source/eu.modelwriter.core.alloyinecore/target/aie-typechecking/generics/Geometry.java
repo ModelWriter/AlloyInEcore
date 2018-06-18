@@ -1,0 +1,6 @@
+package generics;
+
+
+interface Geometry
+{
+}

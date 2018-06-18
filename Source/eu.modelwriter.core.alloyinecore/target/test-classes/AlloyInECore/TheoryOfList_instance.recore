@@ -1,0 +1,71 @@
+model theoryoflists : 'TheoryOfLists.ecore';
+
+Memory
+{
+   vehicles:
+   {
+       NonEnginedVehicle
+       {
+           identifier: 0,
+           name: "EString_1"
+       }
+       NonEnginedVehicle
+       {
+           identifier: 0,
+           name: "EString_2"
+       }
+       NonEnginedVehicle
+       {
+           identifier: 0,
+           name: "Ferhat2"
+       }
+       NonEnginedVehicle
+       {
+           identifier: 0,
+           name: "EString_0"
+       }
+   },
+   lists:
+   {
+       Nil
+       {
+           identifier: 0
+       }
+       BicycleList
+       {
+           identifier: 0,
+           car: vehicles.2,
+           cdr: lists.4
+       }
+       BicycleList
+       {
+           identifier: 0,
+           car: vehicles.1,
+           cdr: lists.1
+       }
+       BicycleList
+       {
+           identifier: 0,
+           car: vehicles.2,
+           cdr: lists.0
+       }
+       BicycleList
+       {
+           identifier: 0,
+           car: vehicles.3,
+           cdr: lists.3
+       }
+       BicycleList
+       {
+           identifier: 0,
+           car: vehicles.0,
+           cdr: lists.6
+       }
+       BicycleList
+       {
+           identifier: 0,
+           car: vehicles.1,
+           cdr: lists.1
+       }
+   }
+}
