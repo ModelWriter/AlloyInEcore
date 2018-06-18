@@ -157,7 +157,7 @@ final class SimplifiedTheoryOfList {
                 , bounds.upperBound(List).product(bounds.upperBound(List)));
 
         bounds.bound(car, tupleFactory.setOf(
-//                tupleFactory.tuple(List0, Object0), //comment this to get a SAT Solution.
+                tupleFactory.tuple(List0, Object0), //comment this to get a SAT Solution.
                 tupleFactory.tuple(List1, Object1),
                 tupleFactory.tuple(List2, Object0),
                 tupleFactory.tuple(List4, Object1),
