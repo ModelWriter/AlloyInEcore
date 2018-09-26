@@ -10,6 +10,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -19,6 +20,25 @@ import kodkod.instance.Universe;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "MGT066",
+		Note = "",
+		IsCheck = false,
+		PartialModel = false,
+		BinaryRelations = 4,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 4,
+		OrderedRelations = 0,
+		Constraints = 45
+)
 public final class MGT066 {
 	private Relation lt, leq, gt, geq;
 	

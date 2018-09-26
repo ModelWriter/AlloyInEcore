@@ -13,6 +13,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.Tuple;
 import kodkod.instance.TupleFactory;
@@ -23,6 +24,25 @@ import kodkod.instance.Universe;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "LatinSquare",
+		Note = "",
+		IsCheck = false,
+		PartialModel = false,
+		BinaryRelations = 0,
+		TernaryRelations = 1,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 5,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 3
+)
 public final class LatinSquare {
 	private final Relation square;
 	

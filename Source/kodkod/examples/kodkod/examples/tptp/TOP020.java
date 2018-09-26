@@ -16,6 +16,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -24,6 +25,25 @@ import kodkod.instance.Universe;
  * A KK encoding of TOP020+1.p from http://www.cs.miami.edu/~tptp/
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "TOP020",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 6,
+		TernaryRelations =3,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 9,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 4,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 4,
+		OrderedRelations = 1,
+		Constraints =27
+)
 public final class TOP020 {
 	private final Relation hausdorff;
 	private final Relation member, open, disjoint, closed;

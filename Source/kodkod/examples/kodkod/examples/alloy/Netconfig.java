@@ -10,6 +10,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -82,6 +83,25 @@ import kodkod.instance.Universe;
  * </pre>
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "Netconfig",
+		Note = "",
+		IsCheck = false,
+		PartialModel = true,
+		BinaryRelations = 2,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 2,
+		NestedRelationalJoins = 1,
+		TransitiveClosure = 1,
+		NestedQuantifiers = 3,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 3,
+		OrderedRelations = 1,
+		Constraints = 19
+)
 public class Netconfig {
 
 	// sigs

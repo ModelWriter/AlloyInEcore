@@ -12,6 +12,7 @@ import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.config.ConsoleReporter;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -57,6 +58,25 @@ import kodkod.instance.Universe;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "Bigconfig",
+		Note = "",
+		IsCheck = true,
+		PartialModel = true,
+		BinaryRelations = 2,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 2,
+		NestedRelationalJoins = 2,
+		TransitiveClosure = 1,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 9
+)
 public class Bigconfig {
 //	 sigs
 	private final Relation Router, Site, HQ, Sub;

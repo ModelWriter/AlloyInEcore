@@ -30,6 +30,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -39,6 +40,25 @@ import kodkod.util.nodes.PrettyPrinter;
  * A toy filesystem specification.
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "ToyFilesystem",
+		Note = "",
+		IsCheck = false,
+		PartialModel = true,
+		BinaryRelations = 1,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 1,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 1,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 4
+)
 public final class ToyFilesystem {
 	private final Relation file, dir, root;
 	private final Relation contents;

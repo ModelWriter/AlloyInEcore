@@ -10,6 +10,7 @@ import kodkod.ast.Relation;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.Tuple;
 import kodkod.instance.TupleFactory;
@@ -19,6 +20,25 @@ import kodkod.instance.TupleSet;
  * A KK encoding of ALG195+1.p from http://www.cs.miami.edu/~tptp/
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "ALG195",
+		Note = "",
+		IsCheck = true,
+		PartialModel = true,
+		BinaryRelations = 7,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 49,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 17,
+		OrderedRelations = 0,
+		Constraints = 38
+)
 public final class ALG195 extends Quasigroups7 {
 
 	/**

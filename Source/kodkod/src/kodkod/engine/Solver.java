@@ -1,4 +1,4 @@
-/* 
+/*
  * Kodkod -- Copyright (c) 2005-present, Emina Torlak
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-/** 
+/**
  * A computational engine for solving relational satisfiability problems. 
  * Such a problem is described by a {@link kodkod.ast.Formula formula} in
  * first order relational logic; finite {@link kodkod.instance.Bounds bounds} on
@@ -166,8 +166,33 @@ public final class Solver implements KodkodSolver {
 		final long startTransl = System.currentTimeMillis();
 
 		try {
-            if (options.solver().instance() instanceof Z3Solver) {
+			if (options.solver().instance() instanceof AssertionChecker) {
+				if (!bounds.lowerBounds().equals(bounds.upperBounds()))
+					throw new AbortedException("Bounds must be exact while using Assertion Checker.");
+				AssertionChecker assertionChecker = (AssertionChecker) options.solver().instance();
+				final long startSolve = System.currentTimeMillis();
+				final boolean isSat = assertionChecker.solve(formula, bounds);
+				final long endSolve = System.currentTimeMillis();
+
+				final Statistics stats = new Statistics(0, 0, 0
+						, 0
+						, endSolve - startSolve);
+
+				if (isSat) {
+					Instance instance = new Instance(bounds.universe());
+					bounds.lowerBounds().forEach(instance::add);
+					return Solution.satisfiable(stats, instance);
+				}
+				else {
+					return Solution.unsatisfiable(stats,
+							makeProof(assertionChecker.getUnsatFormulaSet(), assertionChecker.getUnsatTupleSet()));
+				}
+			}
+            else if (options.solver().instance() instanceof Z3Solver) {
                 Z3Solver z3Solver = (Z3Solver) options.solver().instance();
+
+                z3Solver.setBitSize(options.bitwidth());
+
                 final long startSolve = System.currentTimeMillis();
                 final boolean isSat = z3Solver.solve(formula, bounds);
                 final long endSolve = System.currentTimeMillis();
@@ -233,6 +258,9 @@ public final class Solver implements KodkodSolver {
 	 */
 	public Iterator<Solution> solveAll(final Formula formula, final Bounds bounds)
 		throws HigherOrderDeclException, UnboundLeafException, AbortedException {
+
+        if (options.solver().instance() instanceof AssertionChecker)
+            throw new AbortedException("Use 'solve' method with AssertionChecker.");
 
 		if (options.solver().instance() instanceof Z3Solver) {
 		    Z3Solver z3Solver = (Z3Solver) options.solver().instance();
@@ -368,7 +396,7 @@ public final class Solver implements KodkodSolver {
 		 * @see Iterator#next()
 		 */
 		public Solution next() {
-			if (!hasNext()) throw new NoSuchElementException();			
+			if (!hasNext()) throw new NoSuchElementException();
 			try {
 				return translation.trivial() ? nextTrivialSolution() : nextNonTrivialSolution();
 			} catch (SATAbortedException sae) {
@@ -379,7 +407,7 @@ public final class Solver implements KodkodSolver {
 
 		/** @throws UnsupportedOperationException */
 		public void remove() { throw new UnsupportedOperationException(); }
-		
+
 		/**
 		 * Solves {@code translation.cnf} and adds the negation of the
 		 * found model to the set of clauses.  The latter has the 
@@ -393,20 +421,20 @@ public final class Solver implements KodkodSolver {
 		 */
 		private Solution nextNonTrivialSolution() {
 			final Translation.Whole transl = translation;
-			
+
 			final SATSolver cnf = transl.cnf();
 			final int primaryVars = transl.numPrimaryVariables();
-			
+
 			transl.options().reporter().solvingCNF(primaryVars, cnf.numberOfVariables(), cnf.numberOfClauses());
-			
+
 			final long startSolve = System.currentTimeMillis();
 			final boolean isSat = cnf.solve();
 			final long endSolve = System.currentTimeMillis();
 
 			final Statistics stats = new Statistics(transl, translTime, endSolve - startSolve);
 			final Solution sol;
-			
-			if (isSat) {			
+
+			if (isSat) {
 				// extract the current solution; can't use the sat(..) method because it frees the sat solver
 				sol = Solution.satisfiable(stats, transl.interpret());
 				// add the negation of the current model to the solver
@@ -421,7 +449,7 @@ public final class Solver implements KodkodSolver {
 			}
 			return sol;
 		}
-		
+
 		/**
 		 * Returns the trivial solution corresponding to the trivial translation stored in {@code this.translation},
 		 * and if {@code this.translation.cnf.solve()} is true, sets {@code this.translation} to a new translation 
@@ -434,45 +462,45 @@ public final class Solver implements KodkodSolver {
 		 */
 		private Solution nextTrivialSolution() {
 			final Translation.Whole transl = this.translation;
-			
+
 			final Solution sol = trivial(transl, translTime); // this also frees up solver resources, if unsat
-			
+
 			if (sol.instance()==null) {
 				translation = null; // unsat, no more solutions
 			} else {
 				trivial++;
-				
+
 				final Bounds bounds = transl.bounds();
 				final Bounds newBounds = bounds.clone();
 				final List<Formula> changes = new ArrayList<Formula>();
 
 				for(Relation r : bounds.relations()) {
 					final TupleSet lower = bounds.lowerBound(r);
-					
+
 					if (lower != bounds.upperBound(r)) { // r may change
-						if (lower.isEmpty()) { 
+						if (lower.isEmpty()) {
 							changes.add(r.some());
 						} else {
 							final Relation rmodel = Relation.nary(r.name()+"_"+trivial, r.arity());
-							newBounds.boundExactly(rmodel, lower);	
+							newBounds.boundExactly(rmodel, lower);
 							changes.add(r.eq(rmodel).not());
 						}
 					}
 				}
-				
+
 				// nothing can change => there can be no more solutions (besides the current trivial one).
 				// note that transl.formula simplifies to the constant true with respect to 
 				// transl.bounds, and that newBounds is a superset of transl.bounds.
 				// as a result, finding the next instance, if any, for transl.formula.and(Formula.or(changes)) 
 				// with respect to newBounds is equivalent to finding the next instance of Formula.or(changes) alone.
 				final Formula formula = changes.isEmpty() ? Formula.FALSE : Formula.or(changes);
-				
+
 				final long startTransl = System.currentTimeMillis();
 				translation = Translator.translate(formula, newBounds, transl.options());
 				translTime += System.currentTimeMillis() - startTransl;
-			} 
+			}
 			return sol;
 		}
-		
+
 	}
 }

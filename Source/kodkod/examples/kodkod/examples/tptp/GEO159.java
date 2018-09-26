@@ -10,6 +10,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleSet;
 
@@ -17,6 +18,25 @@ import kodkod.instance.TupleSet;
  * The  GEO159+1 problem from http://www.cs.miami.edu/~tptp/
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "GEO159",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 4,
+		TernaryRelations = 2,
+		NaryRelations = 1,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 4,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 9,
+		OrderedRelations = 0,
+		Constraints = 39
+)
 public class GEO159 extends GEO158 {
 	final Relation between;
 	/*

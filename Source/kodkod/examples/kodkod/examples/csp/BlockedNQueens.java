@@ -43,6 +43,7 @@ import kodkod.engine.Solver;
 import kodkod.engine.config.ConsoleReporter;
 import kodkod.engine.config.Options;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.Instance;
 import kodkod.instance.TupleFactory;
@@ -56,6 +57,25 @@ import kodkod.util.nodes.PrettyPrinter;
  * at http://asparagus.cs.uni-potsdam.de/?action=instances&id=15
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "BlockedNQueens",
+		Note = "",
+		IsCheck = false,
+		PartialModel = true,
+		BinaryRelations = 4,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 8,
+		TransitiveClosure = 1,
+		NestedQuantifiers = 0,
+		SetCardinality = 2,
+		Additions = 0,
+		Subtractions = 2,
+		Comparison = 1,
+		OrderedRelations = 1,
+		Constraints = 6
+)
 public final class BlockedNQueens {
 
 	private final Relation queen, x, y, blocked, num, ord;

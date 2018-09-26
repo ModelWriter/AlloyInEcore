@@ -9,6 +9,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -30,6 +31,25 @@ import kodkod.instance.Universe;
  * </pre>
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "Pigeonhole",
+		Note = "",
+		IsCheck = false,
+		PartialModel = true,
+		BinaryRelations = 1,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 1,
+		OrderedRelations = 0,
+		Constraints = 2
+)
 public final class Pigeonhole {
 	//	 sigs
 	private final Relation Pigeon, Hole;

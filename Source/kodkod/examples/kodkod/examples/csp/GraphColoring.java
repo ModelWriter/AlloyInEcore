@@ -32,6 +32,7 @@ import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.config.ConsoleReporter;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -45,6 +46,25 @@ import kodkod.instance.Universe;
  * for example graph coloring problems instances.
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "GraphColoring",
+		Note = "",
+		IsCheck = false,
+		PartialModel = true,
+		BinaryRelations = 2,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 1,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 2
+)
 public final class GraphColoring {
 	private final Relation vertex, color, edges, v2c;
 	private final Bounds bounds;

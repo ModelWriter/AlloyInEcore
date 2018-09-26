@@ -9,6 +9,7 @@ import kodkod.ast.Relation;
 import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -36,6 +37,25 @@ pred pol (req: Request) {
 
 run pol for 2
 */
+@ExampleMetadata(
+		Name = "DiffEg",
+		Note = "",
+		IsCheck = false,
+		PartialModel = false,
+		BinaryRelations = 5,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 8
+)
 public final class DiffEg {
 //	 sigs
 

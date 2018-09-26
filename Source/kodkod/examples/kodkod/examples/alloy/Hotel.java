@@ -36,6 +36,7 @@ import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
 import kodkod.engine.ucore.RCEStrategy;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -47,6 +48,25 @@ import kodkod.util.nodes.PrettyPrinter;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "Hotel",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 8,
+		TernaryRelations = 4,
+		NaryRelations = 0,
+		HierarchicalTypes = 7,
+		NestedRelationalJoins = 17,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 5,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 22,
+		OrderedRelations = 2,
+		Constraints = 54
+)
 public final class Hotel {
 
 	private final Relation Time, Event, first, last; 

@@ -36,6 +36,7 @@ import kodkod.engine.Solver;
 import kodkod.engine.config.ConsoleReporter;
 import kodkod.engine.config.Options;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.Instance;
 import kodkod.instance.TupleFactory;
@@ -110,7 +111,7 @@ public abstract class NQueens {
 			System.out.println("encoding:");
 			System.out.println(PrettyPrinter.print(f, 1));
 
-			s.options().setSolver(SATFactory.MiniSat);
+			s.options().setSolver(SATFactory.Z3Solver);
 			s.options().setBitwidth(33 - Integer.numberOfLeadingZeros(n - 1));
 			s.options().setReporter(new ConsoleReporter());
 			
@@ -134,6 +135,25 @@ public abstract class NQueens {
 	 * A relational encoding of nqueens.
 	 * @author Emina Torlak
 	 */
+    @ExampleMetadata(
+            Name = "RelQueens",
+            Note = "",
+            IsCheck = false,
+            PartialModel = true,
+            BinaryRelations = 3,
+            TernaryRelations = 0,
+            NaryRelations = 0,
+            HierarchicalTypes = 0,
+            NestedRelationalJoins = 8,
+            TransitiveClosure = 1,
+            NestedQuantifiers = 0,
+            SetCardinality = 2,
+            Additions = 0,
+            Subtractions = 0,
+            Comparison = 1,
+            OrderedRelations = 1,
+            Constraints = 5
+    )
 	private static class RelQueens extends NQueens {
 		private final Relation queen, x, y, num, ord;
 		private final int n;
@@ -256,6 +276,25 @@ public abstract class NQueens {
 	 * A log encoding of nqueens
 	 * @author Emina Torlak
 	 */
+    @ExampleMetadata(
+            Name = "LogQueens",
+            Note = "",
+            IsCheck = false,
+            PartialModel = true,
+            BinaryRelations = 2,
+            TernaryRelations = 0,
+            NaryRelations = 0,
+            HierarchicalTypes = 0,
+            NestedRelationalJoins = 0,
+            TransitiveClosure = 0,
+            NestedQuantifiers = 0,
+            SetCardinality = 0,
+            Additions = 6,
+            Subtractions = 2,
+            Comparison = 5,
+            OrderedRelations = 0,
+            Constraints = 5
+    )
 	private static class LogQueens extends NQueens {
 		private final Relation queen, x, y;
 		private final int n;
@@ -367,6 +406,25 @@ public abstract class NQueens {
 	 * An explicit integer encoding of nqueens
 	 * @author Emina Torlak
 	 */
+    @ExampleMetadata(
+            Name = "IntQueens",
+            Note = "",
+            IsCheck = false,
+            PartialModel = true,
+            BinaryRelations = 2,
+            TernaryRelations = 0,
+            NaryRelations = 0,
+            HierarchicalTypes = 0,
+            NestedRelationalJoins = 0,
+            TransitiveClosure = 0,
+            NestedQuantifiers = 0,
+            SetCardinality = 0,
+            Additions = 4,
+            Subtractions = 2,
+            Comparison = 1,
+            OrderedRelations = 0,
+            Constraints = 5
+    )
 	private static class IntQueens extends NQueens {
 		private final Relation queen, x, y;
 		private final int n;

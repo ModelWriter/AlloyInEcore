@@ -5,6 +5,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 
 /**
@@ -12,6 +13,25 @@ import kodkod.instance.Bounds;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "GEO091",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 4,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 4,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 9,
+		OrderedRelations = 0,
+		Constraints = 39
+)
 public class GEO091 extends GEO158 {
 
 	/**

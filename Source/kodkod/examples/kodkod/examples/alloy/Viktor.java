@@ -216,9 +216,9 @@ public final class Viktor {
 			final Viktor model = new Viktor();
 			
 			final Solver solver = new Solver();
-			solver.options().setSolver(SATFactory.MiniSat);
+			solver.options().setSolver(SATFactory.Z3Solver);
 			solver.options().setReporter(new ConsoleReporter());
-			solver.options().setBitwidth(7);
+			solver.options().setBitwidth(5);
 			final Formula f = model.checkEquations();
 			final Bounds b = model.bounds();
 			System.out.println(f);

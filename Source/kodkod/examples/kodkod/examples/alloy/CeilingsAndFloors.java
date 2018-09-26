@@ -9,6 +9,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -55,6 +56,25 @@ import kodkod.instance.Universe;
  * </pre>
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "CeilingsAndFloors",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 2,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 5,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 4,
+		OrderedRelations = 0,
+		Constraints = 7
+)
 public final class CeilingsAndFloors {
 	private final Relation Platform, Man, ceiling, floor;
 	

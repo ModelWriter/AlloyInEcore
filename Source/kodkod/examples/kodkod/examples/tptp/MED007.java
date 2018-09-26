@@ -8,12 +8,32 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 
 /**
  * A KK encoding of MED007+1.p from http://www.cs.miami.edu/~tptp/
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "MED007",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 1,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 10,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 45
+)
 public final class MED007 extends MED001 {
 	/**
 	 * Constructs a new instance of MED007.

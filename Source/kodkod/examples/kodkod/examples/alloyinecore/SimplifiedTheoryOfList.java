@@ -7,6 +7,7 @@ import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
 import kodkod.engine.satlab.Z3Solver;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -16,6 +17,25 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@ExampleMetadata(
+        Name = "SimplifiedTheoryOfList",
+        Note = "",
+        IsCheck = false,
+        PartialModel = true,
+        BinaryRelations = 3,
+        TernaryRelations = 0,
+        NaryRelations = 0,
+        HierarchicalTypes = 1,
+        NestedRelationalJoins = 1,
+        TransitiveClosure = 1,
+        NestedQuantifiers = 0,
+        SetCardinality = 0,
+        Additions = 0,
+        Subtractions = 0,
+        Comparison = 1,
+        OrderedRelations = 0,
+        Constraints = 12
+)
 final class SimplifiedTheoryOfList {
 
     public static void main(String[] args) {

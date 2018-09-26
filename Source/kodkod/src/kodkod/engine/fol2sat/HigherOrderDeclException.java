@@ -40,7 +40,7 @@ public final class HigherOrderDeclException extends RuntimeException {
 	 * @requires decl.multiplicity != ONE
 	 * @ensures this.decl' = decl
 	 */
-	 HigherOrderDeclException(Decl decl) {
+	public HigherOrderDeclException(Decl decl) {
 		super("Higher order declaration: " + decl);
 		assert decl.multiplicity() != Multiplicity.ONE;
 		this.decl = decl;

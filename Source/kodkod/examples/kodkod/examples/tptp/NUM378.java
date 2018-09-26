@@ -16,6 +16,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -26,6 +27,26 @@ import kodkod.instance.Universe;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "NUM378",
+		Note = "",
+		IsCheck = true,
+		PartialModel = true,
+		BinaryRelations = 1,
+		TernaryRelations = 1,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 1,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 1,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 7,
+		OrderedRelations = 0,
+		Constraints = 106
+)
+
 public final class NUM378 {
 	private final Relation succ, sum;
 	

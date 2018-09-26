@@ -1,3 +1,5 @@
 *.class
-/bin/
+.project
+/.idea/workspace.xml
 /target/
+/bin/

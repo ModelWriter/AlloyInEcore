@@ -14,6 +14,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.Universe;
 
@@ -21,6 +22,25 @@ import kodkod.instance.Universe;
  * A KK encoding of ALG212+1.p from http://www.cs.miami.edu/~tptp/
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "ALG212",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 0,
+		TernaryRelations = 0,
+		NaryRelations = 1,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 16,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 5,
+		OrderedRelations = 0,
+		Constraints = 6
+)
 public final class ALG212 {
 	private final Relation f;
 	

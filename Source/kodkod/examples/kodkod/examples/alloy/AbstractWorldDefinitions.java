@@ -13,6 +13,7 @@ import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.config.ConsoleReporter;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -22,6 +23,25 @@ import kodkod.instance.Universe;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "AbstractWorldDefinitions",
+		Note = "",
+		IsCheck = true,
+		PartialModel = true,
+		BinaryRelations = 4,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 4,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 14,
+		OrderedRelations = 0,
+		Constraints = 54
+)
 public final class AbstractWorldDefinitions {
 	// relations declared in common.als
 	private final Relation Coin, Purse, TransferDetails;

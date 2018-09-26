@@ -100,7 +100,7 @@ public abstract class SATFactory {
 	};
 
 	public static final SATFactory Z3Solver = new SATFactory() {
-		private Z3Solver solver;
+		private kodkod.engine.satlab.Z3Solver solver;
 		public SATSolver instance() {
 			solver = new Z3Solver();
 			return solver;
@@ -109,12 +109,10 @@ public abstract class SATFactory {
 		public String toString() { return solver.toString(); }
 	};
 
-	public static final SATFactory Z3CNFSolver = new SATFactory() {
-		public SATSolver instance() {
-			return new Z3CNFSolver();
-		}
-		public boolean prover() { return false; }
-		public String toString() { return "Z3 CNF"; }
+	public static final SATFactory AssertionChecker = new SATFactory() {
+		public SATSolver instance() { return new AssertionChecker(); }
+		public boolean prover() { return true; }
+		public String toString() { return "Assertion Checker"; }
 	};
 	
 	/**

@@ -17,6 +17,7 @@ import kodkod.engine.Solver;
 import kodkod.engine.fol2sat.HigherOrderDeclException;
 import kodkod.engine.fol2sat.UnboundLeafException;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -26,6 +27,25 @@ import kodkod.instance.Universe;
  * A KK encoding of LAT258+1.p from http://www.cs.miami.edu/~tptp/
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "LAT258",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 1,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 10,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 21
+)
 public final class LAT258 {
 	private final Relation goal, p, t, u, v, w, x, y, z;
 	private final Relation lessThan, meet, join;

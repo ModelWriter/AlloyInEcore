@@ -17,6 +17,7 @@ import kodkod.engine.config.ConsoleReporter;
 import kodkod.engine.fol2sat.HigherOrderDeclException;
 import kodkod.engine.fol2sat.UnboundLeafException;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -27,6 +28,25 @@ import kodkod.util.nodes.PrettyPrinter;
  * A KK encoding of GRA019+1.p through GRA026+1.p from http://www.cs.miami.edu/~tptp/
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "GRA013_026",
+		Note = "",
+		IsCheck = true,
+		PartialModel = true,
+		BinaryRelations = 3,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 0,
+		OrderedRelations = 0,
+		Constraints = 5
+)
 public final class GRA013_026 {
 	private final Relation red, green, lessThan,goal,node;
 	private final int graphSize, cliqueSize;

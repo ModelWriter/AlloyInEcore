@@ -10,6 +10,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -67,6 +68,25 @@ import kodkod.instance.Universe;
  * </pre>
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "RingElection",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 4,
+		TernaryRelations = 1,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 8,
+		TransitiveClosure = 1,
+		NestedQuantifiers = 2,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 8,
+		OrderedRelations = 2,
+		Constraints = 16
+)
 public final class RingElection {
 	private final Relation Process, Time, succ, toSend, elected;
 	private final Relation pfirst, plast, pord, tfirst, tlast, tord;

@@ -33,6 +33,7 @@ import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
 import kodkod.engine.ucore.AdaptiveRCEStrategy;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -42,6 +43,25 @@ import kodkod.util.nodes.Nodes;
  * A toy list specification.
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "ToyLists",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 4,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 2,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 1,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 5,
+		OrderedRelations = 0,
+		Constraints = 18
+)
 public final class ToyLists {
 	private final Relation list, nonEmptyList, emptyList, thing;
 	private final Relation equivTo, prefixes, car, cdr;

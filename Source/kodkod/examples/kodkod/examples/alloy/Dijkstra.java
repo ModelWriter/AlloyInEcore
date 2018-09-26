@@ -11,6 +11,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -20,6 +21,25 @@ import kodkod.instance.Universe;
  * Kodkod encoding of models/examples/algorithms/dijkstra.als.
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "Dijkstra",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 2,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 28,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 1,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 12,
+		OrderedRelations = 2,
+		Constraints = 33
+)
 public final class Dijkstra {
 
 	private final Relation Process, Mutex, State, holds, waits;
@@ -336,7 +356,7 @@ public final class Dijkstra {
 		
 		final Dijkstra model = new Dijkstra();
 		final Solver solver = new Solver();
-		solver.options().setSolver(SATFactory.MiniSat);
+		solver.options().setSolver(SATFactory.Z3Solver);
 
 		try {
 			final Formula noDeadlocks = model.checkDijkstraPreventsDeadlocks();

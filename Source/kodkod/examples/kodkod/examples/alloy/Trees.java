@@ -17,6 +17,7 @@ import kodkod.engine.Solver;
 import kodkod.engine.fol2sat.HigherOrderDeclException;
 import kodkod.engine.fol2sat.UnboundLeafException;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -27,6 +28,25 @@ import kodkod.instance.Universe;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "Trees",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 1,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 0,
+		TransitiveClosure = 2,
+		NestedQuantifiers = 1,
+		SetCardinality = 6,
+		Additions = 2,
+		Subtractions = 2,
+		Comparison = 3,
+		OrderedRelations = 0,
+		Constraints = 21
+)
 public final class Trees {
 	/* KK outperformed by the sequential analysis tool on this model */
 	private final Relation V, E;

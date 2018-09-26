@@ -33,6 +33,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.Tuple;
 import kodkod.instance.TupleFactory;
@@ -42,6 +43,25 @@ import kodkod.instance.Universe;
  * A Kodkod encoding of the social golfer problem.
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "SocialGolfer",
+		Note = "",
+		IsCheck = false,
+		PartialModel = true,
+		BinaryRelations = 0,
+		TernaryRelations = 1,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 2,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 1,
+		Additions = 1,
+		Subtractions = 0,
+		Comparison = 1,
+		OrderedRelations = 0,
+		Constraints = 3
+)
 public final class SocialGolfer {
 	private final Relation plays, player, week, group, size;
 	

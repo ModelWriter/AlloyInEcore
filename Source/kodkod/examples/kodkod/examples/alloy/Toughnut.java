@@ -10,6 +10,7 @@ import kodkod.ast.Relation;
 import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -42,6 +43,25 @@ import kodkod.instance.Universe;
  * @author Emina
  * 
  */
+@ExampleMetadata(
+		Name = "Toughnut",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 1,
+		TernaryRelations = 0,
+		NaryRelations = 1,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 3,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 1,
+		OrderedRelations = 1,
+		Constraints = 2
+)
 public final class Toughnut {
 	private final Relation Cell, covered, ord;
 	

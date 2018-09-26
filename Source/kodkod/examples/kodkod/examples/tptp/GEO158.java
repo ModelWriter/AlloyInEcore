@@ -10,6 +10,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -20,6 +21,25 @@ import kodkod.instance.Universe;
  * 
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "GEO158",
+		Note = "",
+		IsCheck = true,
+		PartialModel = false,
+		BinaryRelations = 4,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 4,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 8,
+		OrderedRelations = 0,
+		Constraints = 37
+)
 public class GEO158 {
 	final Relation partOf, incident, sum, endPoint, innerPoint, meet, closed, open;
 	final Relation curve, point;
@@ -27,7 +47,7 @@ public class GEO158 {
 	 * part_of		:	C -> C
 	 * incident_c	: 	P -> C
 	 * sum			:	C -> C -> one C     	 
-	 * end_point		:	P -> C
+	 * end_point	:	P -> C
 	 * inner_point	:	P -> C
 	 * meet			: 	P -> C -> C
 	 * closed		:	C

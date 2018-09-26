@@ -14,6 +14,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.Instance;
 import kodkod.instance.Tuple;
@@ -25,6 +26,25 @@ import kodkod.instance.Universe;
  * @author emina
  *
  */
+@ExampleMetadata(
+		Name = "ALG195_1",
+		Note = "",
+		IsCheck = true,
+		PartialModel = true,
+		BinaryRelations = 7,
+		TernaryRelations = 2,
+		NaryRelations = 0,
+		HierarchicalTypes = 0,
+		NestedRelationalJoins = 80,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 20,
+		OrderedRelations = 0,
+		Constraints = 25
+)
 public final class ALG195_1 {
 	final Relation[] e1, e2, h;
 	final Relation op1, op2, s1, s2;

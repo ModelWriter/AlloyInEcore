@@ -15,6 +15,7 @@ import kodkod.engine.Solver;
 import kodkod.engine.fol2sat.HigherOrderDeclException;
 import kodkod.engine.fol2sat.UnboundLeafException;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.Universe;
@@ -23,6 +24,25 @@ import kodkod.instance.Universe;
  * A KK encoding of lists.als
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "Lists",
+		Note = "",
+		IsCheck = false,
+		PartialModel = false,
+		BinaryRelations = 4,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 2,
+		NestedRelationalJoins = 2,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 2,
+		OrderedRelations = 0,
+		Constraints = 21
+)
 public final class Lists {
 	/* KK outperformed by the sequential analysis tool on the reflexive and symmetric assertions */
 	private final Relation Thing, List, NonEmptyList, EmptyList;

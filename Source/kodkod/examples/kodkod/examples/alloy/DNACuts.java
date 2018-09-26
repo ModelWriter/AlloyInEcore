@@ -11,6 +11,7 @@ import kodkod.ast.Variable;
 import kodkod.engine.Solution;
 import kodkod.engine.Solver;
 import kodkod.engine.satlab.SATFactory;
+import kodkod.examples.ExampleMetadata;
 import kodkod.instance.Bounds;
 import kodkod.instance.TupleFactory;
 import kodkod.instance.TupleSet;
@@ -70,6 +71,25 @@ import kodkod.instance.Universe;
  * </pre>
  * @author Emina Torlak
  */
+@ExampleMetadata(
+		Name = "DNACuts",
+		Note = "",
+		IsCheck = false,
+		PartialModel = false,
+		BinaryRelations = 3,
+		TernaryRelations = 0,
+		NaryRelations = 0,
+		HierarchicalTypes = 6,
+		NestedRelationalJoins = 2,
+		TransitiveClosure = 0,
+		NestedQuantifiers = 0,
+		SetCardinality = 0,
+		Additions = 0,
+		Subtractions = 0,
+		Comparison = 9,
+		OrderedRelations = 1,
+		Constraints = 11
+)
 public final class DNACuts {
 	private final Relation next, Link, CutLink, JoinLink, Base, base, partner;
 	private final Expression[] neighbor;
